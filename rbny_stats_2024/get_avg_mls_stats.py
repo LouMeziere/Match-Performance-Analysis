@@ -4,6 +4,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import StaleElementReferenceException
 import pandas as pd
+import os
 
 # Set up the driver
 driver = webdriver.Chrome()
@@ -82,8 +83,20 @@ try:
     # Create a DataFrame from the data rows
     df = pd.DataFrame(data_rows, columns=headers)
 
-    # Save the DataFrame to an Excel file
-    output_file = "mls_rbny_stats.xlsx"
+    
+    
+    # Ensure the working directory is correct (the directory of your script)
+    script_dir = os.path.dirname(os.path.realpath(__file__))  # Get the current script directory
+    files_dir = os.path.join(script_dir, 'files')  # Define the 'files' directory
+
+    # Ensure the 'files' folder exists
+    if not os.path.exists(files_dir):
+        os.makedirs(files_dir)
+
+    # Define the output file path knowing that the folder 'files' already exists
+    output_file = os.path.join(files_dir, "avg_mls_stats.xlsx")
+
+
 
     df.to_excel(output_file, index=False)
     print(f"Data successfully written to {output_file}")

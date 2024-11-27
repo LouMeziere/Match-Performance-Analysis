@@ -4,6 +4,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import StaleElementReferenceException
 import pandas as pd
+import os
 
 # Set up the driver
 driver = webdriver.Chrome()
@@ -82,8 +83,20 @@ try:
     # Create a DataFrame from the data rows
     df = pd.DataFrame(data_rows, columns=headers)
 
-    # Save the DataFrame to an Excel file
-    output_file = "mls_nyc_stats.xlsx"
+
+
+    # Ensure the working directory is correct (the directory of your script)
+    script_dir = os.path.dirname(os.path.realpath(__file__))  # Get the current script directory
+    files_dir = os.path.join(script_dir, 'files')  # Define the 'files' directory
+
+    # Ensure the 'files' folder exists
+    if not os.path.exists(files_dir):
+        os.makedirs(files_dir)
+
+    # Define the output file path knowing that the folder 'files' already exists
+    output_file = os.path.join(files_dir, "avg_mls_stats.xlsx")
+
+
 
     df.to_excel(output_file, index=False)
     print(f"Data successfully written to {output_file}")
@@ -96,24 +109,3 @@ finally:
     driver.quit()
 
 
-nyc_player_roles = {
-    "A. Martínez": "Attacker", "Santiago Rodríguez": "Midfielder", "H. Wolf": "Attacker",
-    "M. Bakrar": "Attacker", "A. Ojeda": "Attacker", "A. Perea": "Midfielder",
-    "J. Fernández": "Attacker", "K. Parks": "Midfielder", "T. Gray": "Defender",
-    "M. Ilenic": "Defender", "M. Jones": "Attacker", "Talles Magno": "Attacker",
-    "Thiago": "Defender", "M. Moralez": "Midfielder", "K. O'Toole": "Attacker",
-    "J. Sands": "Midfielder", "J. Arroyave": "Midfielder", "A. Baiera": "Defender",
-    "M. Carrizo": "Midfielder", "P. Elias": "Midfielder", "Rio Hope-Gund": "Defender",
-    "A. Jasson": "Midfielder", "N. Acevedo": "Midfielder", "Thiago Andrade": "Attacker",
-    "L. Barraza": "Goalkeeper", "N. Benalcazar": "Defender", "J. Denis": "Attacker",
-    "M. Freese": "Goalkeeper", "J. Haak": "Midfielder", "C. McFarlane": "Defender",
-    "J. Mijatović": "Attacker", "C. Mizell": "Goalkeeper", "A. Morales": "Midfielder",
-    "S. Owusu": "Defender", "M. Pellegrini": "Midfielder", "A. Rando": "Goalkeeper",
-    "B. Risa": "Defender", "T. Romero": "Goalkeeper", "G. Segal": "Attacker",
-    "J. Shore": "Midfielder", "S. Tanasijević": "Defender", "S. Turnbull": "Defender",
-    "Z. Yañez": "Attacker"
-}
-
-nyc_season_stats = pd.read_excel('mls_nyc_stats.xlsx')
-# Add role column based on the player names and player_roles
-nyc_season_stats['Role'] = nyc_season_stats['Player'].map(nyc_player_roles)
