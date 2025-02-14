@@ -1,0 +1,2 @@
+Metric,Avg_Diff,p-value,Test Used,Significant
+Cmp%.2,-10.035897435897446,0.0351622918702773,Mann-Whitney U Test,True

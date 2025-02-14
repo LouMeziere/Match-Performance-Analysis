@@ -1,0 +1,3 @@
+Metric,Avg_Diff,p-value,Test Used,Significant
+Cmp%,-11.099999999999994,0.004051675996687613,T-Test (Equal Var),True
+Cmp%.2,-4.388571428571439,0.03246675105710634,Mann-Whitney U Test,True

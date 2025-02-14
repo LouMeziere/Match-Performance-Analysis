@@ -1,0 +1,2 @@
+Metric,Avg_Diff,p-value,Test Used,Significant
+TotDist,-1586.9898989898988,0.03686774720639815,T-Test (Equal Var),True
