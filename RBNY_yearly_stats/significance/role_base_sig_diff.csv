@@ -1,0 +1,13 @@
+Role,Sheet Name,Metric,Avg_Diff,p-value,Test Used
+Attacker,playing_time,xG+/-90,-0.732,0.013,Mann-Whitney U Test
+Attacker,standard_stats,G+A-PK,-0.364,0.014,Mann-Whitney U Test
+Attacker,standard_stats,G+A.1,-0.366,0.023,Mann-Whitney U Test
+Attacker,standard_stats,Gls.1,-0.286,0.028,T-Test (Equal Var)
+Defender,playing_time,Mn/Sub,13.929,0.015,T-Test (Equal Var)
+Defender,playing_time,onG,-12.444,0.039,T-Test (Equal Var)
+Defender,playing_time,onGA,-12.903,0.006,T-Test (Equal Var)
+Defender,shot_creation,GCA90,-0.104,0.039,T-Test (Equal Var)
+Defender,shot_creation,PassLive.1,-1.75,0.029,Mann-Whitney U Test
+Midfielder,passing,Cmp%,-6.502,0.021,Welch’s T-Test
+Midfielder,passing,Cmp%.2,-9.356,0.005,T-Test (Equal Var)
+Midfielder,shooting,SoT%,-19.302,0.025,Mann-Whitney U Test

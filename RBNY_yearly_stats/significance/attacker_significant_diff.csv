@@ -1,5 +1,0 @@
-Metric,Avg_Diff,p-value,Test Used,Significant
-Gls.1,-0.286,0.028320283507412895,T-Test (Equal Var),True
-G+A.1,-0.366,0.023396061943870543,Mann-Whitney U Test,True
-G+A-PK,-0.364,0.014446516817694632,Mann-Whitney U Test,True
-xG+/-90,-0.7324999999999999,0.012712426484368893,Mann-Whitney U Test,True

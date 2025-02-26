@@ -1,0 +1,9 @@
+Sheet Name,Metric,Avg_Diff,p-value,Test Used
+passing,Cmp%,-5.291,0.032,Mann-Whitney U Test
+passing,Cmp%.2,-7.757,0.009,T-Test (Equal Var)
+playing_time,Mn/Sub,7.49,0.018,T-Test (Equal Var)
+playing_time,onG,-8.56,0.032,T-Test (Equal Var)
+playing_time,onGA,-8.739,0.014,T-Test (Equal Var)
+playing_time,xG+/-90,-0.397,0.042,Mann-Whitney U Test
+score,Attendance,-5932.272,0.0,Mann-Whitney U Test
+score,Poss,5.106,0.015,T-Test (Equal Var)
